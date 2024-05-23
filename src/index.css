@@ -44,4 +44,5 @@ button {
   background: #d4d3d3;
   color: black;
   text-align: center;
+  cursor: pointer;
 }
