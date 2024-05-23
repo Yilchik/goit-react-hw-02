@@ -11,13 +11,17 @@ function App() {
     bad: 0,
   });
 
-  const handleClick = () => {
-    setFeedback(feedback + 1);
+  const updateFeedback = (feedbackType) => {
+    setFeedback((feedback) => ({
+      ...feedback,
+      [feedbackType]: feedback[feedbackType] + 1,
+    }));
   };
+
   return (
     <>
       <Description />
-      <Options updateFeedback={handleClick} />
+      <Options updateFeedback={updateFeedback} />
       <Feedback feedback={feedback} />
     </>
   );
