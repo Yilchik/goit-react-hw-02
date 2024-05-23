@@ -19,14 +19,25 @@ function App() {
     }));
   };
 
+  const resetFeedback = () => {
+    setFeedback({ good: 0, neutral: 0, bad: 0 });
+  };
+
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
 
   return (
     <>
       <Description />
-      <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
-      <Feedback feedback={feedback} totalFeedback={totalFeedback} />
-      <Notification message="No feedback yet" />
+      <Options
+        updateFeedback={updateFeedback}
+        totalFeedback={totalFeedback}
+        resetFeedback={resetFeedback}
+      />
+      {totalFeedback > 0 ? (
+        <Feedback feedback={feedback} totalFeedback={totalFeedback} />
+      ) : (
+        <Notification message="No feedback yet" />
+      )}
     </>
   );
 }
