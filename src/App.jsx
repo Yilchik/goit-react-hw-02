@@ -18,11 +18,13 @@ function App() {
     }));
   };
 
+  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+
   return (
     <>
       <Description />
       <Options updateFeedback={updateFeedback} />
-      <Feedback feedback={feedback} />
+      <Feedback feedback={feedback} totalFeedback={totalFeedback} />
     </>
   );
 }
